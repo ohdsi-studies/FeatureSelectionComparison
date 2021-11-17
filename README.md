@@ -1,19 +1,23 @@
-[Study title]
+Comparison of different feature selection pipelines for creating parsimonious patient-level prediction models
 =============
 
-<img src="https://img.shields.io/badge/Study%20Status-Repo%20Created-lightgray.svg" alt="Study Status: Repo Created">
+<img src="https://img.shields.io/badge/Study%20Status-Started-blue.svg" alt="Study Status: Started">
 
-- Analytics use case(s): **-**
-- Study type: **-**
-- Tags: **-**
-- Study lead: **-**
-- Study lead forums tag: **[[Lead tag]](https://forums.ohdsi.org/u/[Lead tag])**
-- Study start date: **-**
+- Analytics use case(s): **Patient-Level Prediction**
+- Study type: **Methods Research, Clinical Application**
+- Tags: **Feature Selection**
+- Study lead: **Jose Posada, Aniek Markus, Ross Williams, Jenna Reps**
+- Study lead forums tag: **[jposada](https://forums.ohdsi.org/u/jposada)
+[jreps](https://forums.ohdsi.org/u/jreps)
+[RossW](https://forums.ohdsi.org/u/RossW)
+[aniekmarkus](https://forums.ohdsi.org/u/aniekmarkus)**
+- Study start date: **2021-11-15**
 - Study end date: **-**
-- Protocol: **-**
+- Protocol: [Click Here](https://ohdsi-studies.github.io/FeatureSelectionComparison/Protocol.html)
 - Publications: **-**
 - Results explorer: **-**
 
-[Description (single paragraph)]
+Method research to determine 
+1) Whether we can implement feature selection in big p and big n data to develop parsimonious models while not compromising model performance
+2) Whether one feature selection pipeline is better than others
 
-[You can add other text at this point]
