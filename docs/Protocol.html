@@ -402,21 +402,36 @@ Erasmus University
 </table>
 <p>## Disclosures</p>
 <p>This study is undertaken within Observational Health Data Sciences and Informatics (OHDSI), an open collaboration.
-<strong>JMR</strong> is an employee of Janssen Research and Development and shareholders in John &amp; Johnson.</p>
+<strong>JMR</strong> is an employee of Janssen Research and Development and shareholders in Johnson &amp; Johnson.</p>
 <p># Abstract</p>
 <p><strong>Background and Significance</strong></p>
-<pre><code>[ADD]</code></pre>
+<p>Patient-level prediction models healthcare can help identify a patients personalized risk of some future medical event. These models can aid medical decision making. Machine learning models are frequently published, but few many any clinical impact. One issue limiting models being used clinically is the difficulty with integrating a model into an EHR system. This is a complex task, especially when the model requires variables from different parts of the EHR system. Simple and parsimonious patient level prediction (PLP) models may reduce the complexity of implementing a model clinically.</p>
 <p><strong>Study Aims</strong></p>
-<pre><code>[ADD]</code></pre>
+<p>We aim to answer the question: Can we find a recommended approach to create parsimonious PLP models for Healthcare data?</p>
 <p><strong>Study Description</strong></p>
 <ul>
 <li>Design: Retrospecive cohort with external validation<br />
 </li>
-<li>Target Populations: [ADD]</li>
-<li>Outcomes: [ADD]</li>
+<li>Target Populations:
+<ol style="list-style-type: decimal">
+<li>First random visit in 2017</li>
+<li>First influenza vaccine visit in 2017</li>
+</ol></li>
+<li>Outcomes:
+<ol style="list-style-type: decimal">
+<li>AMI</li>
+<li>Anaphylaxis.sql</li>
+<li>Appendicitis</li>
+<li>DisIntraCoag</li>
+<li>Encephalomyelitis</li>
+<li>Hemorrhagic Stroke</li>
+<li>Non Hemorrhagic Stroke</li>
+<li>Pulmonary Embolism</li>
+<li>Guillain Barre Syndrome</li>
+</ol></li>
 <li>Time-at-risk:
 <ol style="list-style-type: decimal">
-<li>0 days to 365 days</li>
+<li>1 days to 365 days</li>
 </ol></li>
 <li>Covariates
 <ol style="list-style-type: decimal">
@@ -524,15 +539,16 @@ Results presentation
 </div>
 <div id="study-objectives" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Study Objectives</h1>
-<p>[ADD]</p>
+<p>Can we find a recommended approach to create parsimonious PLP models for Healthcare data?</p>
 <p>Specific aims:</p>
-<p>[ADD]</p>
+<p>To compare different data-driven approaches for simplifying a PLP model</p>
 </div>
 <div id="research-methods" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Research Methods</h1>
 <div id="target-populations" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Target Populations</h2>
-<p>[ADD]</p>
+<p>Target 1: Patients with a visit in 2017 with &gt;= 365 days prior observations, index is the first valid visit.</p>
+<p>Target 2: Patients with a influenza vaccine in 2017 with &gt;= 365 days prior observations, index is the date of the influenza vaccine.</p>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:targets-of-interest">Table 5.1: </span>Target Population.
@@ -997,11 +1013,20 @@ index + 0 days to index + 365
 <div id="feature-selection-pipeline" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Feature Selection Pipeline</h2>
 <p>In this study we will compare the following feature selection pipelines:</p>
-<p>[ADD]</p>
+<ul>
+<li>Standard LASSO model</li>
+<li>Standard LASSO model + automatic reduction by restricting to top N variables based on feature importance metrics</li>
+<li>Standard LASSO model + automatic reduction with backwards selection afterwards</li>
+<li>Standard LASSO model + automatic reduction with forward selection using LASSO selected variables afterwards</li>
+<li>The constrained LASSO - this lets a user specify the number of variables to include</li>
+</ul>
 </div>
-<div id="classification-models" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Classification Models</h2>
-<p>In this study we will use LASSO logistic regression, GBM and random forest. We will use 3-fold cross-validation on a 75% train set to select the optimal varience (amount of reguarlization) and use a 25% test set for internal validation performance estimation.</p>
+<div id="covariates-to-focus-on" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Covariates to focus on</h2>
+<ul>
+<li>all</li>
+<li>use PHOEBE to select those well represented across databases</li>
+</ul>
 </div>
 <div id="candidate-covariates" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Candidate Covariates</h2>
@@ -1015,8 +1040,8 @@ index + 0 days to index + 365
 <div id="data-sources" class="section level2" number="5.7">
 <h2><span class="header-section-number">5.7</span> Data sources</h2>
 <p>We will execute the study as an OHDSI network study.
-All data partners within OHDSI are encouraged to participate voluntarily and can do so conveniently, because of the community’s shared Observational Medical Outcomes Partnership (OMOP) common data model (CDM) and OHDSI tool-stack.
-Many OHDSI community data partners have already committed to participate and we will recruit further data partners through OHDSI’s standard recruitment process, which includes protocol publication on OHDSI’s GitHub, an announcement in OHDSI’s research forum, presentation at the weekly OHDSI all-hands-on meeting and direct requests to data holders.</p>
+All data partners within OHDSI are encouraged to participate voluntarily and can do so conveniently, because of the community’s shared Observational Medical Outcomes Partnership (OMOP) common data model (CDM) and OHDSI tool-stack.</p>
+<p>Many OHDSI community data partners have already committed to participate and we will recruit further data partners through OHDSIs standard recruitment process, which includes protocol publication on OHDSIs GitHub, an announcement in OHDSIs research forum, presentation at the weekly OHDSI all-hands-on meeting and direct requests to data holders.</p>
 <p>Table <a href="#tab:data-sources">5.3</a> lists the 5 already committed data sources; these sources encompass a large variety of practice types and populations.
 For each data source, we report a brief description and size of the population it represents.
 All data sources will receive institutional review board approval or exemption for their participation before executing the study.</p>

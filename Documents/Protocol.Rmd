@@ -132,25 +132,37 @@ csl: jamia.csl
   ## Disclosures
   
   This study is undertaken within Observational Health Data Sciences and Informatics (OHDSI), an open collaboration.
-  **JMR** is an employee of Janssen Research and Development and shareholders in John & Johnson.
+  **JMR** is an employee of Janssen Research and Development and shareholders in Johnson & Johnson.
   
   # Abstract
   
   **Background and Significance**
     
-    [ADD]
+  Patient-level prediction models healthcare can help identify a patients personalized risk of some future medical event. These models can aid medical decision making. Machine learning models are frequently published, but few many any clinical impact.  One issue limiting models being used clinically is the difficulty with integrating a model into an EHR system.  This is a complex task, especially when the model requires variables from different parts of the EHR system.  Simple and parsimonious patient level prediction (PLP) models may reduce the complexity of implementing a model clinically. 
   
   **Study Aims**
     
-    [ADD]
+   We aim to answer the question: Can we find a recommended approach to create parsimonious PLP models for Healthcare data?
   
   **Study Description**
     
   * Design: Retrospecive cohort with external validation  
-  * Target Populations: [ADD]
-  * Outcomes: [ADD]
+  * Target Populations: 
+    1) First random visit in 2017 
+    2) First influenza vaccine visit in 2017
+  * Outcomes: 
+    1) AMI
+    2) Anaphylaxis.sql
+    3) Appendicitis
+    4) DisIntraCoag
+    5) Encephalomyelitis
+    6) Hemorrhagic Stroke
+    7) Non Hemorrhagic Stroke
+    8) Pulmonary Embolism
+    9) Guillain Barre Syndrome
+
   * Time-at-risk: 
-    1) 0 days to 365 days 
+    1) 1 days to 365 days 
   * Covariates
     1) Demographics (age in 5 year buckets + gender)
     2) Demographics + Conditions + Drugs -1 days to -365 days relative to index
@@ -207,17 +219,19 @@ if (knitr::is_latex_output()) {
 
 # Study Objectives
 
-[ADD]
+Can we find a recommended approach to create parsimonious PLP models for Healthcare data?
 
 Specific aims:
   
-[ADD]
+To compare different data-driven approaches for simplifying a PLP model
 
 # Research Methods
 
 ## Target Populations
 
-[ADD]
+Target 1: Patients with a visit in 2017 with >= 365 days prior observations, index is the first valid visit.
+
+Target 2: Patients with a influenza vaccine in 2017 with >= 365 days prior observations, index is the date of the influenza vaccine.
 
 ```{r targets-of-interest, echo=FALSE, warning=FALSE}
 eois <- readr::read_csv(system.file("settings", "TargetsOfInterest.csv", package = "CovidVaccinePrediction"), col_types = readr::cols()) %>%
@@ -266,11 +280,17 @@ if (knitr::is_latex_output()) {
 
 In this study we will compare the following feature selection pipelines:
 
-[ADD]
+- Standard LASSO model
+- Standard LASSO model + automatic reduction by restricting to top N variables based on feature importance metrics
+- Standard LASSO model + automatic reduction with backwards selection afterwards
+- Standard LASSO model + automatic reduction with forward selection using LASSO selected variables afterwards
+- The constrained LASSO - this lets a user specify the number of variables to include
 
-## Classification Models
+## Covariates to focus on
 
-In this study we will use LASSO logistic regression, GBM and random forest.  We will use 3-fold cross-validation on a 75% train set to select the optimal varience (amount of reguarlization) and use a 25% test set for internal validation performance estimation.
+- all
+- use PHOEBE to select those well represented across databases
+
 
 ## Candidate Covariates
 
@@ -286,7 +306,8 @@ Performance will be plotted as a function of number of features in the model to 
 
 We will execute the study as an OHDSI network study.
 All data partners within OHDSI are encouraged to participate voluntarily and can do so conveniently, because of the community's shared Observational Medical Outcomes Partnership (OMOP) common data model (CDM) and OHDSI tool-stack.
-Many OHDSI community data partners have already committed to participate and we will recruit further data partners through OHDSI’s standard recruitment process, which includes protocol publication on OHDSI’s GitHub, an announcement in OHDSI’s research forum, presentation at the weekly OHDSI all-hands-on meeting and direct requests to data holders.
+
+Many OHDSI community data partners have already committed to participate and we will recruit further data partners through OHDSIs standard recruitment process, which includes protocol publication on OHDSIs GitHub, an announcement in OHDSIs research forum, presentation at the weekly OHDSI all-hands-on meeting and direct requests to data holders.
 
 Table \@ref(tab:data-sources) lists the 5 already committed data sources; these sources encompass a large variety of practice types and populations. 
 For each data source, we report a brief description and size of the population it represents.

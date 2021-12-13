@@ -13,7 +13,7 @@ Comparison of different feature selection pipelines for creating parsimonious pa
 [aniekmarkus](https://forums.ohdsi.org/u/aniekmarkus)**
 - Study start date: **2021-11-15**
 - Study end date: **-**
-- Protocol: [Click Here](https://ohdsi-studies.github.io/FeatureSelectionComparison/Protocol.html)
+- Protocol: [Click Here](https://ohdsi-studies.github.io/FeatureSelectionComparison/docs/Protocol.html)
 - Publications: **-**
 - Results explorer: **-**
 
