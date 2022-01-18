@@ -138,11 +138,11 @@ csl: jamia.csl
   
   **Background and Significance**
     
-  Patient-level prediction models healthcare can help identify a patients personalized risk of some future medical event. These models can aid medical decision making. Machine learning models are frequently published, but few many any clinical impact.  One issue limiting models being used clinically is the difficulty with integrating a model into an EHR system.  This is a complex task, especially when the model requires variables from different parts of the EHR system.  Simple and parsimonious patient level prediction (PLP) models may reduce the complexity of implementing a model clinically. 
+  Patient-level prediction models healthcare can help identify a patients personalized risk of some future medical event. These models can aid medical decision making. Machine learning models are frequently published, but few have any clinical impact. One issue limiting models being used clinically is the difficulty with integrating a model into an EHR system (Lee et al, 2020, https://www.mdpi.com/2227-9709/7/3/25). This is a complex task, especially when the model requires variables from different parts of the EHR system. Simple and parsimonious patient level prediction (PLP) models may reduce the complexity of implementing a model clinically. Furthermore, deploying a simple and thus interpretable model can contribute to trustworthy AI in health care (Markus et al., 2021, https://pubmed.ncbi.nlm.nih.gov/33309898/). Interpretability is influenced by amongst others model class and the number of features. In this study we aim to find a data-driven feature selection method to generate parsimonious models that perform well. 
   
   **Study Aims**
     
-   We aim to answer the question: Can we find a recommended approach to create parsimonious PLP models for Healthcare data?
+   We aim to answer the question: Can we find a recommended approach to create parsimonious PLP models for healthcare data?
   
   **Study Description**
     
@@ -217,13 +217,22 @@ if (knitr::is_latex_output()) {
 
 [ADD]
 
+
+Related/previous work:
+
+Sanchez-Pinto et al. (2018, https://www.sciencedirect.com/science/article/pii/S1386505618305811) analyzed the performance of eight different variable selection methods in two clinical datasets. However, their datasets contained only 29 candidate predictor variables, whereas the number of available variables in healthcare data is typically much larger (ref?). 
+
+
 # Study Objectives
 
-Can we find a recommended approach to create parsimonious PLP models for Healthcare data?
+Can we find a recommended approach to create parsimonious PLP models for healthcare data?
+
+- Is focusing on big data a difference?
+- Is focusing on different centers a difference? (different types of data / continents etc.)
 
 Specific aims:
   
-To compare different data-driven approaches for simplifying a PLP model
+To compare different data-driven feature selection methods for simplifying a PLP model.
 
 # Research Methods
 
