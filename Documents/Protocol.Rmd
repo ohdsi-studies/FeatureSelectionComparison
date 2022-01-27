@@ -91,6 +91,7 @@ csl: jamia.csl
   CDM; Common Data Model
   CRAN; Comprehensive R Archive Network
   EHR; Electronic Health Record
+  IPCI; Integrated Primary Care Information
   IRB; Institutional review board
   JMDC; Japan Medical Data Center
   MDCR; IBM MarketScan Medicare Supplemental Database
@@ -318,7 +319,7 @@ All data partners within OHDSI are encouraged to participate voluntarily and can
 
 Many OHDSI community data partners have already committed to participate and we will recruit further data partners through OHDSIs standard recruitment process, which includes protocol publication on OHDSIs GitHub, an announcement in OHDSIs research forum, presentation at the weekly OHDSI all-hands-on meeting and direct requests to data holders.
 
-Table \@ref(tab:data-sources) lists the 5 already committed data sources; these sources encompass a large variety of practice types and populations. 
+Table \@ref(tab:data-sources) lists the 6 already committed data sources; these sources encompass a large variety of practice types and populations. 
 For each data source, we report a brief description and size of the population it represents.
 All data sources will receive institutional review board approval or exemption for their participation before executing the study.
 
@@ -330,12 +331,13 @@ data_sources <- readr::read_delim(col_names = TRUE, delim = ";", trim_ws = TRUE,
   IBM MarketScan Multi-State Medicaid Database (MDCD) ; Medicaid enrollees, racially diverse ; 26M ; 2006 -- ; Adjudicated health insurance claims for Medicaid enrollees from multiple states and includes hospital discharge diagnoses, outpatient diagnoses and procedures, and outpatient pharmacy claims.
   Optum Clinformatics Data Mart (Optum) ; Commercially or Medicare insured ; 85M ; 2000 -- ; Inpatient and outpatient healthcare insurance claims.
   Optum Electronic Health Records (OptumEHR) ; US, general ; 93M ; 2006 -- ; Clinical information, prescriptions, lab results, vital signs, body measurements, diagnoses and procedures derived from clinical notes using natural language processing. 
+  Integrated Primary Care Information (IPCI); Netherlands, general practitioner; 2.5M ; 2006 -- ;  General practitioner data including demographic information, patient complaints and symptoms, diagnoses, lab results, lifestyle factors, referral notes from consultants, and hospital admissions.
 ")
 tab <- kable(data_sources, booktabs = TRUE, linesep = "",
       caption = "Committed  data sources and the populations they cover.") %>% 
   kable_styling(bootstrap_options = "striped", latex_options = "striped") %>%
   pack_rows("Administrative claims", 1, 4, latex_align = "c", indent = FALSE) %>%
-  pack_rows("Electronic health records (EHRs)", 5, 5, latex_align = "c", indent = FALSE)
+  pack_rows("Electronic health records (EHRs)", 5, 6, latex_align = "c", indent = FALSE)
 if (knitr::is_latex_output()) {
   tab %>%
     column_spec(1, width = "10em") %>%
